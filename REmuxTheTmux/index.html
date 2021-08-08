@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>REmux The Tmux - Writeup</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="heading">REmux The Tmux - Writeup</h1>
+        </header>
+        <main class="Main">
+            <article class="tryhackme">
+                <p class="description">Today we will be solving the REmux The Tmux challenge in Tryhackme. <br>You can check the challenge <a href="https://tryhackme.com/room/tmuxremux">here</a></p>
+                <section class="TmuxMachine">
+                    <p class="Title">Tmux practice machine</p>
+                    <p>Here you can start the machine. And ssh it into using the username and password provided. Or you can directly perform all the operation in the terminal.</p>
+                    <p class="question">Start the VM if you need it and ssh in.</p>
+                    <p class="answer">No answer needed</p>
+                </section>
+                <section class="TmuxIntro">
+                    <p class="Title"> Starting tmux "Sessions" and default tmux "prefix"</p>
+                    <p class="question">Do the ctrl and b keys need to be held down the whole time with every commands to work? yea/nay</p>
+                    <p class="answer">nay</p>
+                    <p class="question">How to start tmux with the session with the name "thm"?</p>
+                    <p class="answer">tmux new -s thm</p>
+                    <p class="question">How to change the current tmux session name?</p>
+                    <p class="answer">ctrl b shift $</p>
+                    <p class="question">How to quit a tmux session without closing the session? To attach back later.</p>
+                    <p class="answer">ctrl b d</p>
+                    <p class="question">How to list all tmux sessions?</p>
+                    <p class="answer">tmux ls</p>
+                    <p class="question">How to reattach to a detached tmux session with the session name of "thm"</p>
+                    <p class="answer">tmux a -t thm</p>
+                    <p class="question">How to create a new tmux session from your current tmux session with the name kali?</p>
+                    <p class="answer">tmux new -s kali -d</p>
+                    <p class="question">How to switch between two or more tmux sessions without detaching from the current tmux session?</p>
+                    <p class="answer">ctrl b s</p>
+                    <p class="question">How do you force kill the tmux session named "thm" if it's not responsive from a new terminal window or tmux session?</p>
+                    <p class="answer">tmux kill-session -t thm</p>
+                    <p class="question">Within a nested tmux session. A second tmux session within the first one. How to change the session name of the second/internal tmux session?</p>
+                    <p class="answer">ctrl b ctrl b shift $</p>
+                    <p class="question">How to get into a tmux prompt to run/type tmux commands?</p>
+                    <p class="answer">ctrl b shift :</p>
+                    <p class="question">Are there than one way to exit a tmux prompt? yea/nay</p>
+                    <p class="answer">yea</p>
+                    <p class="question">Is tmux case sensitive. Will hitting the caps lock break tmux? yea/nay</p>
+                    <p class="answer">yea</p>
+                    <p class="question">Within tmux prompt or command mode how would you change the tmux directory? Where a new window or pane will start from the changed directory of /opt.</p>
+                    <p class="answer">a -c /opt</p>
+                    <p class="question">How to kill all tmux sessions accept the one currently in use? With the name "notes".</p>
+                    <p class="answer">tmux kill-session -t notes -a</p>
+                </section>
+                <section class="ManagePanes">
+                    <p class="Title"> Manage tmux "Panes"</p>
+                    <p class="question">How to create a new pane split horizontally?</p>
+                    <p class="answer">ctrl b shift "</p>
+                    <p class="question">How to close a tmux pane like closing a ssh session?</p>
+                    <p class="answer">exit</p>
+                    <p class="question">How to create a new pane split vertically?</p>
+                    <p class="answer">ctrl b shift %</p>
+                    <p class="question">How to cycle between tmux pre built layout options? Starting with the number 1.</p>
+                    <p class="answer">ctrl b esc 1</p>
+                    <p class="question">How to cycle/toggle between tmux layouts, one at a time?</p>
+                    <p class="answer">ctrl b spacebar</p>
+                    <p class="question">How to force quit a frozen, crashed or borked pane?</p>
+                    <p class="answer">ctrl b x y</p>
+                    <p class="question">How to move between the two must used tmux panes for the current tmux window?</p>
+                    <p class="answer">ctrl b ;</p>
+                    <p class="question">Can you use the arrow to move to the desired pane? yea/nay</p>
+                    <p class="answer">yea</p>
+                    <p class="question">How to move the currently selected pane clockwise?</p>
+                    <p class="answer">ctrl b shift {</p>
+                    <p class="question">How to move the currently selected pane counter-clockwise</p>
+                    <p class="answer">ctrl b shift }</p>
+                    <p class="question">Before using swap-pane. How to check for which pane has what number?</p>
+                    <p class="answer">ctrl b q</p>
+                    <p class="question">How to swap two panes and move with the swapped pane?  Within tmux prompt mode. 1 -> 3 location</p>
+                    <p class="answer">swap-pane -s 3 -t 1</p>
+                    <p class="question">How to swap two panes without changing the currently selected pane location? Within tmux prompt mode. 1 -> 4 pane number</p>
+                    <p class="answer">swap-pane -t 4 -s 1</p>
+                </section>
+                <section class="ManageWindows">
+                    <p class="Title"> Manage tmux "Windows"</p>
+                    <p class="question">How to create a new empty tmux window?</p>
+                    <p class="answer">ctrl b c</p>
+                    <p class="question">How to change the currently select window's name?</p>
+                    <p class="answer">ctrl b ,</p>
+                    <p class="question">How to move the currently selected pane to it's own tmux window?</p>
+                    <p class="answer">ctrl b shift !</p>
+                    <p class="question">How to fuse two panes together with the "source" window of "bash"? After entering a tmux prompt?</p>
+                    <p class="answer">join-pane -s bash</p>
+                    <p class="question">How to fuse two panes together with the "destination" window of "sudo"? After entering a tmux prompt?</p>
+                    <p class="answer">join-pane -t sudo</p>
+                    <p class="question">What option can added with question 4 and 5 to fuse together vertically?</p>
+                    <p class="answer">-v</p>
+                    <p class="question">What option can added with question 4 and 5 to fuse together horizontally?</p>
+                    <p class="answer">-h</p>
+                    <p class="question">With join-pane can you use the window number instead of the window's name? yea/nay</p>
+                    <p class="answer">yea</p>
+                    <p class="question">How to kill or completely close a window. Including all the panes open on that window. If it's unresponsive?</p>
+                    <p class="answer">ctrl b shift &</p>
+                    <p class="question">How to view and cycle between all the tmux windows for the current tmux session without detaching from the current session?</p>
+                    <p class="answer">ctrl b w</p>
+                    <p class="question">How to move back to the previous tmux window?</p>
+                    <p class="answer">ctrl b p</p>
+                    <p class="question">How to move up to the next tmux window?</p>
+                    <p class="answer">ctrl b n</p>
+                </section>
+                <section class="TmuxCopy">
+                    <p class="Title">Tmux "copy" mode</p>
+                    <p class="question">How to start copy mode?</p>
+                    <p class="answer">ctrl b [</p>
+                    <p class="question">While in copy mode. How to search/grep up the wall of terminal text?</p>
+                    <p class="answer">ctrl r</p>
+                    <p class="question">While in copy mode. How to search/grep down the wall of terminal text?</p>
+                    <p class="answer">ctrl s</p>
+                    <p class="question">How to exit search up or search down within copy mode?</p>
+                    <p class="answer">esc</p>
+                    <p class="question">What single key can also be used to to exit out of copy mode.</p>
+                    <p class="answer">q</p>
+                    <p class="question">After starting copy mode. How do you enable text highlighting to select for text copying?</p>
+                    <p class="answer">ctrl spacebar</p>
+                    <p class="question">After selecting the text you want to copy. How do copy it?</p>
+                    <p class="answer">alt w</p>
+                    <p class="question">When in a terminal text editor. How to paste from the tmux clipboard?</p>
+                    <p class="answer">ctrl b ]</p>
+                    <p class="question">How to double check what is currently copied to the tmux clipboard</p>
+                    <p class="answer">ctrl b shift #</p>
+                </section>
+                <section class="TmuxAdvanced">
+                    <p class="Title"> Oh My Tmux and beyond</p>
+                    <p class="question">Does tmux have a default tmux.conf config file? yea/nay</p>
+                    <p class="answer">nay</p>
+                    <p class="question">Where can you find examples for custom tmux.conf config files?</p>
+                    <p class="answer">/usr/share/doc/tmux</p>
+                    <p class="question">Can you use Hex color codes in place of the color name? yea/nay</p>
+                    <p class="answer">yea</p>
+                    <p class="question">What directory must the .tmux.conf be put in to work with the next tmux session</p>
+                    <p class="answer">home</p>
+                    <p class="question">How would you update tmux changes without quitting the tmux session from a tmux prompt?</p>
+                    <p class="answer">source-file ~/.tmux.conf</p>
+                    <p class="question">How to completely reset tmux to its default and kill all sessions? If the .tmux.conf is borked.</p>
+                    <p class="answer">tmux kill-server</p>
+                    <p class="question">How would you select addition hotkeys. Without overwriting the default hotkey?</p>
+                    <p class="answer">bind</p>
+                    <p class="question">How would you change the prefix to Ctrl a?</p>
+                    <p class="answer">set -g prefix C-a</p>
+                    <p class="question">Can you display shell command output. From a script or one line command? yea/nay</p>
+                    <p class="answer">yea</p>
+                    <p class="question">How would you load a plugin into a tmux config file?</p>
+                    <p class="answer">set -g @plugin</p>
+                    <p class="question">How can you run the desired plugin after loading it?</p>
+                    <p class="answer">run-shell</p>
+                </section>
+                <section class="TmuxEnd">
+                    <p class="Title"> Oreo's open-source .tmux.conf file</p>
+                    <p class="question">git clone or fork it</p>
+                    <p class="answer">No need to answer</p>
+                </section>
+                <section class="ThankYou">
+                    Thank you
+                </section>
+            </article>
+        </main>
+        <footer>
+           Made by KamalAres
+        </footer>
+        
+
+    </body>
+</html>
