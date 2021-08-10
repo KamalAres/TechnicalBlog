@@ -1,6 +1,6 @@
 ## Kamal Ares
 
 
-##I am a passionate Cyber Security Enthusiast. I do regular CTF in tryhackme.
+## I am a passionate Cyber Security Enthusiast. I do regular CTF in tryhackme.
 
-##Contact:kamalkannanares@gmail.com
+## Contact:kamalkannanares@gmail.com
